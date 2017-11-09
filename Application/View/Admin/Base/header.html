@@ -1,0 +1,121 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>榕城美容美发管理后台</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="./Public/Admin/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="./Public/Admin/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="./Public/Admin/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="./Public/Admin/css/admin.css">
+    <script src="./Public/Admin/js/jquery.min.js"></script>
+    <script src="./Public/Admin/js/app.js"></script>
+</head>
+<body>
+<header class="am-topbar admin-header">
+    <div class="am-topbar-brand"><a href="index.php?p=Admin&c=Index&a=index"><img src="./Public/Admin/i/logo.png"></a></div>
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+        <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
+            <li class="am-dropdown tognzhi" data-am-dropdown>
+                <button class="am-btn am-btn-primary am-dropdown-toggle am-btn-xs am-radius am-icon-bell-o" data-am-dropdown-toggle> 消息管理<span class="am-badge am-badge-danger am-round">6</span></button>
+       <ul class="am-dropdown-content">
+                    <li class="am-dropdown-header">所有消息都在这里</li>
+                    <li>
+                        <a href="#">未发货订单
+                            <span class="am-badge am-badge-danger am-round">
+
+                            </span>
+                        </a></li>
+                </ul>
+            </li>
+            <li class="kuanjie">
+                <a href="index.php?p=Admin&c=User&a=index">会员管理</a>
+                <a href="index.php?p=Admin&c=Member&a=index">员工管理</a>
+                <a href="index.php?p=Admin&c=Order&a=index">预约管理</a>
+                <a href="index.php?p=Admin&c=Plans&a=index">套餐管理</a>
+                <a href="index.php?p=Admin&c=Member&a=index">个人中心</a>
+                <a href="index.php?p=Admin&c=Article&a=index">活动列表</a>
+                <a href="index.php?p=Admin&c=Login&a=loginOut">安全退出</a>
+            </li>
+            <li class="am-hide-sm-only" style="float: right;">
+                <a href="javascript:;" id="admin-fullscreen">
+                    <span class="am-icon-arrows-alt"></span>
+                    <span class="admin-fullText">开启全屏</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="am-cf admin-main">
+    <div class="nav-navicon admin-main admin-sidebar">
+        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;">
+            <strong style="font-size: 20px">
+                管理员:<?=(isset($_SESSION['userinfo']) ? $_SESSION['userinfo']['username'] : '')?>
+            </strong>
+        </div>
+        <div class="sideMenu" >
+
+            <h3 class="am-icon-users"><em></em> <a href="index.php?p=Admin&c=User&a=index">会员管理</a></h3>
+            <ul>
+                <li><a href="index.php?p=Admin&c=User&a=index">会员列表</a> </li>
+                <li><a href="index.php?p=Admin&c=User&a=insert">添加会员</a> </li>
+                <li><a href="index.php?p=Admin&c=Vip&a=index">VIP会员等级管理</a> </li>
+            </ul>
+
+            <h3 class="am-icon-flag"><em></em> <a href="index.php?p=Admin&c=Article&a=index">活动管理</a></h3>
+            <ul>
+                <li><a href="index.php?p=Admin&c=Article&a=index">活动列表</a></li>
+                <li><a href="index.php?p=Admin&c=Article&a=insert">添加新活动</a></li>
+                <li><a href="index.php?p=Admin&c=Recharge&a=index">充值活动列表</a> </li>
+                <li><a href="index.php?p=Admin&c=Recharge&a=insert">添加充值活动</a> </li>
+            </ul>
+
+            <h3 class="am-icon-users"><em></em> <a href="index.php?p=Admin&c=Group&a=index">公司管理</a></h3>
+            <ul>
+                <li><a href="index.php?p=Admin&c=Group&a=index">部门列表</a> </li>
+                <li><a href="index.php?p=Admin&c=Group&a=add">添加部门</a> </li>
+                <li><a href="index.php?p=Admin&c=Member&a=index">员工列表</a> </li>
+                <li><a href="index.php?p=Admin&c=Member&a=insert">添加员工</a> </li>
+            </ul>
+
+            <h3 class="am-icon-users"><em></em> <a href="index.php?p=Admin&c=Order&a=index">记录管理</a></h3>
+            <ul>
+                <li><a href="index.php?p=Admin&c=Order&a=index">预约列表</a> </li>
+                <li><a href="index.php?p=Admin&c=History&a=index">消费记录</a> </li>
+            </ul>
+
+            <h3 class="am-icon-users"><em></em> <a href="index.php?p=Admin&c=Plans&a=index">消费管理</a></h3>
+            <ul>
+                <li><a href="index.php?p=Admin&c=Plans&a=index">套餐列表</a> </li>
+                <li><a href="index.php?p=Admin&c=Plans&a=add">添加套餐</a> </li>
+                <li><a href="index.php?p=Admin&c=Codes&a=index">代金券列表</a> </li>
+                <li><a href="index.php?p=Admin&c=Codes&a=add">添加代金券</a> </li>
+            </ul>
+
+            <h3 class="am-icon-users"><em></em> <a href="index.php?p=Admin&c=Points&a=index">商品管理</a></h3>
+            <ul>
+                <li><a href="index.php?p=Admin&c=Points&a=index">商品列表</a> </li>
+                <li><a href="index.php?p=Admin&c=PointOrder&a=index">订单管理</a> </li>
+            </ul>
+
+            <!-- sideMenu End -->
+
+            <script type="text/javascript">
+                jQuery(".sideMenu").slide({
+                    titCell:"h3", //鼠标触发对象
+                    targetCell:"ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
+                    effect:"slideDown", //targetCell下拉效果
+                    delayTime:300 , //效果时间
+                    triggerTime:150, //鼠标延迟触发时间（默认150）
+                    defaultPlay:true,//默认是否执行效果（默认true）
+                    returnDefault:true //鼠标从.sideMen移走后返回默认状态（默认false）
+                });
+            </script>
+
+        </div>

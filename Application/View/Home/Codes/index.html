@@ -1,0 +1,45 @@
+<?php  require_once VIEW_PATH."Home/Base/header.html";?>
+
+<div class="admin-biaogelist">
+
+  <div class="listbiaoti am-cf">
+    <ul class="am-icon-flag on"> 我的代金券</ul>
+
+    <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">代金券名称列表</a></dl>
+
+  </div>
+  <form class="am-form am-g">
+    <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+      <thead>
+      <tr class="am-success">
+        <th class="table-check"><input type="checkbox" /></th>
+        <th class="table-id">ID</th>
+        <th class="table-title">代金券代码</th>
+        <th class="table-type">代金券金额</th>
+        <th class="table-type">使用状态</th>
+        <th width="130px" class="table-date">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <?php foreach($rows as $row):?>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td><?=$row['code_id']?></td>
+        <td><?=$row['code']?></td>
+        <td><?=$row['money']?></td>
+        <td><?=$row['status']==0 ? '未使用' : ($row['status']==1 ? '已使用' : '结余')?></td>
+        <td>
+          <div style="">
+            <?php if($row['status'] == 1):?>
+            <a  href="index.php?p=Home&c=Codes&a=delete&id=<?=$row['code_id']?>">删除</a>
+            <?php endif;?>
+          </div>
+
+        </td>
+      </tr>
+      <?php endforeach;?>
+      </tbody>
+    </table>
+    <!--<?=$html?>-->
+  </form>
+</div>

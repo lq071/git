@@ -1,0 +1,77 @@
+<?php require_once VIEW_PATH."Admin/Base/header.html"?>
+<div class=" admin-content">
+	
+		<div class="daohang">
+
+</div>
+
+</div>
+
+
+<div class="admin-biaogelist">
+
+    <div class="listbiaoti am-cf">
+
+      <ul class="am-icon-users"> 充值活动管理</ul>
+      
+      <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">充值活动列表</a></dl>
+      
+      <dl>
+        <a type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" href="index.php?p=Admin&c=Recharge&a=insert"> 手动添加充值活动</a>
+      </dl>
+
+      <!--这里打开的是新页面-->
+    </div>
+    <form class="am-form am-g" action="index.php?p=Admin&c=Recharge&a=index" method="post">
+          <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+            <thead>
+              <tr class="am-success">
+                <th class="table-id">ID</th>
+                <th class="table-title">需要充值</th>
+                <th class="table-title">赠送金额</th>
+                <th class="table-type">充值活动名称</th>
+                <th width="130px" class="table-set">操作</th>
+              </tr>
+
+            </thead>
+            <tbody>
+            <?php foreach($rows as $row):?>
+              <tr>
+                <td><?=$row['recharge_id']?></td>
+                <td><?=$row['money']?></td>
+                <td><?=$row['donation']?></td>
+                <td><?=$row['name']?></td>
+                <td>
+                	<div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+
+                      <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: ''}" title="修改订充值活动信息" href="index.php?p=Admin&c=Recharge&a=update&recharge_id=<?=$row['recharge_id']?>"><span class="am-icon-pencil-square-o"></span></a>
+                      <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除充值活动信息" href="index.php?p=Admin&c=Recharge&a=delete&recharge_id=<?=$row['recharge_id']?>"><span class="am-icon-trash-o"></span></a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <?php endforeach;?>
+            </tbody>
+          </table>
+          <hr />
+        </form>
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="./Public/Admin/js/amazeui.min.js"></script>
+<!--<![endif]-->
+
+
+
+</body>
+</html>

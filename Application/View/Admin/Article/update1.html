@@ -1,0 +1,124 @@
+<?php require_once VIEW_PATH."Admin/Base/header.html"?>
+
+    <div class=" admin-content">
+
+        <div class="daohang">
+
+        </div>
+
+
+
+
+        <div class="admin-biaogelist">
+
+            <div class="listbiaoti am-cf">
+                <ul class="am-icon-flag on"> 栏目名称</ul>
+
+                <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">活动列表</a></dl>
+
+
+
+            </div>
+
+            <div class="fbneirong">
+                <form class="am-form" action="index.php?p=Admin&c=Article&a=update" method="post">
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">活动标题：</div>
+                        <div class="you">
+                            <?=$row['title']?>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">活动简介：</div>
+                        <div class="you">
+                            <?=$row['intro']?>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">活动内容：</div>
+                        <div class="you">
+
+                                 <?=$row['content']?>
+
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">活动开始日期：</div>
+                        <div class="you">
+                            <ul>
+                                <li style="margin-right: 0;">
+                                    <span class="tubiao am-icon-calendar">开始日期</span>
+                                    <input type="text" class="am-form-field am-input-sm am-input-zm  am-icon-calendar" placeholder="开始日期" data-am-datepicker="{theme: 'success',}"  name="start"  style="width: 400px;height: 40px;" value="<?=date('Y-m-d',$row['time'])?>" readonly/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">活动结束日期：</div>
+                        <div class="you">
+                            <ul>
+                                <li style="margin-right: 0;">
+                                    <span class="tubiao am-icon-calendar">结束日期</span>
+                                    <input type="text" class="am-form-field am-input-sm am-input-zm  am-icon-calendar" placeholder="结束日期" data-am-datepicker="{theme: 'success',}"  name="end"  style="width: 400px;height: 40px;" value="<?=date('Y-m-d',$row['time'])?>" readonly/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">活动发布日期：</div>
+                        <div class="you">
+                            <ul>
+                                <li style="margin-right: 0;">
+                                    <span class="tubiao am-icon-calendar">发布日期</span>
+                                    <input type="text" class="am-form-field am-input-sm am-input-zm  am-icon-calendar" placeholder="发布日期" data-am-datepicker="{theme: 'success',}"  name="time"  style="width: 400px;height: 40px;" value="<?=date('Y-m-d',$row['time'])?>" readonly/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="you" style="margin-left: 11%;">
+                            <button type="button" class="am-btn am-btn-success am-radius"><a href="index.php?p=Admin&c=Article&a=update&id=<?=$row['article_id']?>">修改活动</a></button>
+
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+<!--[if lt IE 9]>
+<script src="./Public/Admin//js/polyfill/rem.min.js"></script>
+<script src="./Public/Admin//js/polyfill/respond.min.js"></script>
+<script src="./Public/Admin//js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="./Public/Admin//js/amazeui.min.js"></script>
+<!--<![endif]-->
+
+
+
+</body>
+</html>

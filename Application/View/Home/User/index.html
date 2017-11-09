@@ -1,0 +1,84 @@
+<?php  require_once VIEW_PATH."Home/Base/header.html";?>
+
+<div class="admin-biaogelist">
+
+  <div class="listbiaoti am-cf">
+    <ul class="am-icon-flag on"> 我的个人信息</ul>
+
+    <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">个人信息列表</a></dl>
+
+  </div>
+  <form class="am-form am-g">
+<!--    <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+      <thead>
+      <tr class="am-success">
+        <th class="table-id">头像</th>
+        <th class="table-title">用户名</th>
+        <th class="table-type">真实姓名</th>
+        <th class="table-type">会员等级</th>
+        <th class="table-type">会员积分</th>
+        <th class="table-author am-hide-sm-only">性别</th>
+        <th class="table-author am-hide-sm-only">电话</th>
+        <th class="table-date am-hide-sm-only">余额</th>
+      </tr>
+
+      </thead>
+      <tbody>
+      <tr>
+        <td><img src="<?=$row['photo']?>" alt="头像" width="40"></td>
+        <td><?=$row['username']?></td>
+        <td><?=$row['realname']?></td>
+        <td><?=($row['is_vip'] == 1) ? "{$row['level']}" : "普通会员"?></td>
+        <td><?=$row['mark']?></td>
+        <td style="text-align: center"><?=($row['sex']==1)?'男':'女'?></td>
+        <td><?=$row['telephone']?></td>
+        <td><?=$row['money']?></td>
+      </tr>
+      </tbody>
+    </table>-->
+    <div class="xinxitj"></div>
+    <table class="am-table" style="font-size: 18px;" >
+      <thead>
+      <tr>
+        <th>头像</th>
+        <th><img src="<?=$row['photo']?>" alt="头像" width="40"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>用户名</td>
+        <td><?=$row['username']?></td>
+      </tr>
+      <tr>
+        <td>真实姓名</td>
+        <td><?=$row['realname']?></td>
+      </tr>
+      <tr>
+        <td>会员等级</td>
+        <td><?=($row['is_vip'] == 1) ? "{$row['level']}" : "普通会员"?></td>
+      </tr>
+      <tr>
+        <td>会员积分</td>
+        <td><?=$row['mark']?></td>
+      </tr>
+      <tr>
+        <td>性别</td>
+        <td><?=($row['sex']==1)?'男':'女'?></td>
+      </tr>
+      <tr>
+        <td>电话</td>
+        <td><?=$row['telephone']?></td>
+      </tr>
+      <tr>
+        <td>余额</td>
+        <td><?=$row['money']?></td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="2" style="text-align: center"><a href="index.php?p=Home&c=User&a=update">修改个人信息</a></td>
+      </tr>
+      </tfoot>
+    </table>
+  </form>
+</div>

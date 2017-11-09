@@ -1,0 +1,126 @@
+<?php require_once VIEW_PATH."Admin/Base/header.html"?>
+        <div class="admin-biaogelist">
+
+            <div class="listbiaoti am-cf">
+                <ul class="am-icon-flag on"> 栏目名称</ul>
+
+                <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">活动列表</a></dl>
+
+
+
+            </div>
+
+            <div class="fbneirong">
+                <form class="am-form" action="index.php?p=Admin&c=Article&a=insert" method="post">
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">活动标题：</div>
+                        <div class="you">
+                            <input type="text" class="am-input-sm" id="" placeholder="请输入标题" name="title">
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">活动简介：</div>
+                        <div class="you">
+                            <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入介绍" name="intro">
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">活动内容：</div>
+                        <div class="you">
+
+
+
+                            <!-- 加载编辑器的容器 -->
+                            <script id="container" name="content" type="text/plain">活动内容介绍无</script>
+                            <!-- 配置文件 -->
+                            <script type="text/javascript" src="./Public/Admin/ueditor/ueditor.config.js"></script>
+                            <!-- 编辑器源码文件 -->
+                            <script type="text/javascript" src="./Public/Admin/ueditor/ueditor.all.js"></script>
+
+                            <!-- 实例化编辑器 -->
+                            <script type="text/javascript">
+                                var editor = new UE.ui.Editor({initialFrameHeight:300,initialFrameWidth:755 });
+                                editor.render("container");
+                                var ue = UE.getEditor('container');
+                            </script>
+
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">活动开始日期：</div>
+                        <div class="you">
+                            <ul>
+                                <li style="margin-right: 0;">
+                                    <span class="tubiao am-icon-calendar">开始日期</span>
+                                    <input type="text" class="am-form-field am-input-sm am-input-zm  am-icon-calendar" placeholder="开始日期" data-am-datepicker="{theme: 'success',}"  name="start"  style="width: 400px;height: 40px;"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">活动结束日期：</div>
+                        <div class="you">
+                            <ul>
+                                <li style="margin-right: 0;">
+                                    <span class="tubiao am-icon-calendar">结束日期</span>
+                                    <input type="text" class="am-form-field am-input-sm am-input-zm  am-icon-calendar" placeholder="结束日期" data-am-datepicker="{theme: 'success',}"  name="end"  style="width: 400px;height: 40px;"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">活动发布日期：</div>
+                        <div class="you">
+                            <ul>
+                                <li style="margin-right: 0;">
+                                    <span class="tubiao am-icon-calendar">发布日期</span>
+                                    <input type="text" class="am-form-field am-input-sm am-input-zm  am-icon-calendar" placeholder="发布日期" data-am-datepicker="{theme: 'success',}"  name="time"  style="width: 400px;height: 40px;"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="you" style="margin-left: 11%;">
+                            <button type="submit" class="am-btn am-btn-success am-radius">发布活动</button>
+
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+<!--[if lt IE 9]>
+<script src="./Public/Admin//js/polyfill/rem.min.js"></script>
+<script src="./Public/Admin//js/polyfill/respond.min.js"></script>
+<script src="./Public/Admin//js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="./Public/Admin//js/amazeui.min.js"></script>
+<!--<![endif]-->
+
+
+
+</body>
+</html>

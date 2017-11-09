@@ -1,0 +1,187 @@
+<?php require_once VIEW_PATH."Admin/Base/header.html"?>
+
+  <div class=" admin-content">
+
+    <div class="daohang">
+
+    </div>
+
+<div class="admin">
+  <div class="admin-index">
+    <dl data-am-scrollspy="{animation: 'slide-right', delay: 100}">
+      <dt class="qs"><i class="am-icon-users"></i></dt>
+      <dd><?=$countMember?></dd>
+      <dd class="f12">员工数量</dd>
+    </dl>
+    <dl data-am-scrollspy="{animation: 'slide-right', delay: 300}">
+      <dt class="cs"><i class="am-icon-area-chart"></i></dt>
+      <dd>455</dd>
+      <dd class="f12">今日收入</dd>
+    </dl>
+    <dl data-am-scrollspy="{animation: 'slide-right', delay: 600}">
+      <dt class="hs"><i class="am-icon-shopping-cart"></i></dt>
+      <dd><?=$countGroup?></dd>
+      <dd class="f12">部门数量</dd>
+    </dl>
+    <dl data-am-scrollspy="{animation: 'slide-right', delay: 900}">
+      <dt class="ls"><i class="am-icon-cny"></i></dt>
+      <dd>455</dd>
+      <dd class="f12">全部收入</dd>
+    </dl>
+  </div>
+
+
+
+
+  <div class="admin-biaoge">
+    <div class="xinxitj">充值排行榜</div>
+    <table class="am-table">
+      <thead>
+          <tr>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>VIP</th>
+            <th>电话</th>
+            <th>充值金额</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php foreach($rechargeTop as $recharge):?>
+          <tr>
+            <td><?=$recharge['user_id']?></td>
+            <td><?=$recharge['username']?></td>
+            <td><?=($recharge['is_vip']==1)?"{$recharge['level']}":"普通会员"?></td>
+            <td><?=$recharge['telephone']?></td>
+            <td><?=$recharge['sumMoney']?> </td>
+          </tr>
+        <?php endforeach;?>
+        </tbody>
+      </table>
+      <div class="xinxitj">消费排行榜</div>
+      <table class="am-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>VIP</th>
+            <th>电话</th>
+            <th>消费金额</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach($spendTop as $spend):?>
+            <tr>
+              <td><?=$spend['user_id']?></td>
+              <td><?=$spend['username']?></td>
+              <td><?=($spend['is_vip']==1)?"{$spend['level']}":"普通会员"?></td>
+              <td><?=$spend['telephone']?></td>
+              <td><?=$spend['sumMoney']?> </td>
+            </tr>
+        <?php endforeach;?>
+        </tbody>
+      </table>
+      <div class="xinxitj">服务之星</div>
+      <table class="am-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>身份</th>
+            <th>部门</th>
+            <th>次数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach($serviceTop as $service):?>
+            <tr>
+            <td><?=$service['member_id']?></td>
+            <td><?=$service['username']?></td>
+            <td><?=($service['is_admin']==1)?'管理员':'普通员工'?></td>
+            <td>
+              <?php foreach($groups as $group):
+                  if($group['group_id'] == $service['group_id']):
+                    echo $group['name'];
+              endif;
+              endforeach;?>
+            </td>
+            <td><?=$service['sumService']?> </td>
+          </tr>
+          <?php endforeach;?>
+        </tbody>
+      </table>
+    </div>
+  <div class="shuju">
+    <div class="shujuone">
+        <dl>
+          <a href="index.php?p=Admin&c=Index&a=update" style="display: block"><h2>会员消费</h2></a>
+        </dl>
+      </div>
+      <div class="shujutow">
+        <dl>
+          <a href="index.php?p=Admin&c=Index&a=insert" style="display: block"><h2>会员充值</h2></a>
+        </dl>
+      </div>
+      <div class="slideTxtBox">
+        <div class="hd">
+          <ul>
+            <li>公司信息</li>
+            <li>公告</li>
+          </ul>
+        </div>
+        <div class="bd">
+          <ul>
+            <div style="width: auto">
+              <span>金剪刀美发店于1996年成立，总部位于秀丽多姿的历史文化名城——“榕城”成都。1998年，金剪刀美发创始人兰剑注册了“金剪刀”商标，以真、率、美的纯熟剪技别具一格，开始了品牌发展之路。“金剪刀”以技立家，所有员工坚持在学习中进步、以现实检验真知、以精进力臻完美、以服务赢得顾客，孜孜不倦，毫不殆懈，在广大顾客的一路支持下，历经十多年的发展，终于打响了自身在美发行业的知名度，在顾客中树立了让人叹服的口碑。截至2014年末，“金剪刀”加盟店已经突破上百家，越来越多的顾客领略到了“金剪刀”非凡的剪技和独特的美发造型效果，而这里优质完善的服务也让广大顾客交口称赞。</span>
+            </div>
+          </ul>
+          <ul>
+            <div>
+              <a href="">招募会员</a>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <script type="text/javascript">jQuery(".slideTxtBox").slide();</script>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="./Public/Admin/js/polyfill/rem.min.js"></script>
+<script src="./Public/Admin/js/polyfill/respond.min.js"></script>
+<script src="./Public/Admin/js/amazeui.legacy.js"></script>
+<![endif]--> 
+
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="./Public/Admin/js/amazeui.min.js"></script>
+<!--<![endif]-->
+
+
+
+</body>
+</html>

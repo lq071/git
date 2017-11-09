@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Amaze UI Admin index Examples</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="./Public/Admin/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="./Public/Admin/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="./Public/Admin/css/amazeui.min.css" />
+    <link rel="stylesheet" href="./Public/Admin/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="./Public/Admin/css/app.css">
+    <script src="./Public/Admin/js/jquery.min.js">
+
+    </script>
+</head>
+
+<body data-type="login" style="background-color: #D7EAF9">
+    <script src="./Public/Admin/js/theme.js"></script>
+    <div class="am-g tpl-g">
+        <!-- 风格切换 -->
+        <div class="tpl-skiner">
+            <!--<div class="tpl-skiner-toggle am-icon-cog">-->
+            <div >
+
+
+
+
+            </div>
+
+            <div class="tpl-skiner-content">
+                <div class="tpl-skiner-content-title">
+                    <!--选择主题-->
+                </div>
+                <div class="tpl-skiner-content-bar">
+                    <span class="skiner-color skiner-white" data-color="theme-white"></span>
+                    <span class="skiner-color skiner-black" data-color="theme-black"></span>
+                </div>
+            </div>
+        </div>
+        <div class="tpl-login">
+            <div class="tpl-login-content">
+                <div class="tpl-login-logo">
+                    <p style="text-align: center"><img src="./Public/Admin/i/timg.jpg" width="500px" style="margin-bottom: 30px"></p>
+                </div>
+                <form class="am-form tpl-form-line-form" action="index.php?p=Admin&c=Login&a=check" method="post">
+
+
+                    <div class="am-form-group">
+                        <input type="text" name="username" class="tpl-form-input"  placeholder="请输入用户名" style="width: 500px;margin: auto;">
+
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="password"  name="password" class="tpl-form-input"  placeholder="请输入密码" style="width: 500px;margin: auto;">
+
+                    </div>
+                    <div class="am-form-group">
+                            <input type="text"  name="validate" class="tpl-form-input"  placeholder="请输入验证码" style="width: 500px;margin: auto;">
+
+                    </div>
+                    <div style="width: 500px;margin: auto;">
+                            <img src="index.php?p=Admin&c=ValidateCode&a=doimg" onclick="this.src='index.php?p=Admin&c=ValidateCode&a=doimg&'+Math.random()" title="点击换一张"/>
+                    </div>
+                    <div class="am-form-group tpl-login-remember-me" style="width: 500px;margin: auto;">
+                        <label for="remember-me">
+                            记住密码<input id="remember-me" type="checkbox" name="remember" value="1" >
+                        </label>
+                    </div>
+                    <div class="am-form-group" style="width: 500px;margin: auto;">
+
+                        <button type="submit" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./Public/Admin/js/amazeui.min.js"></script>
+    <script src="./Public/Admin/js/app.js"></script>
+
+</body>
+
+</html>

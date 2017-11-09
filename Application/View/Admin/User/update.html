@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Amaze UI Admin index Examples</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="./Public/Admin/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="./Public/Admin/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="./Public/Admin/css/amazeui.min.css" />
+    <link rel="stylesheet" href="./Public/Admin/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="./Public/Admin/css/app.css">
+    <script src="./Public/Admin/js/jquery.min.js"></script>
+
+</head>
+
+<body data-type="login">
+    <script src="./Public/Admin/js/theme.js"></script>
+    <div class="am-g tpl-g">
+        <!-- 风格切换 -->
+        <div class="tpl-login" style="text-align:center">
+            <div class="tpl-login-content">
+                <div class="tpl-login-title" style="font-size: 40px">修改会员信息</div>
+                <span class="tpl-login-content-info" style="font-size: 20px">
+                  会员详情信息
+              </span>
+                <form class="am-form tpl-form-line-form" method="post" enctype="multipart/form-data" action="index.php?p=Admin&c=User&a=update">
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input"  placeholder="用户名" style="width: 500px;margin: auto;" name="username" value="<?=$row['username']?>">
+                        <input type="hidden" name="id" value="<?=$row['user_id']?>">
+                    </div>
+                    <div class="am-form-group">
+                        <input type="file" class="tpl-form-input"  placeholder="头像" style="width: 500px;margin: auto;" name="photo" value="">
+                        <img src="<?=$row['photo']?>" alt="" width="200">
+                        <input type="hidden" name="oldphoto" value="<?=$row['photo']?>">
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="password" class="tpl-form-input"  placeholder="请输入旧密码" style="width: 500px;margin: auto;" name="oldpassword" value="">
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="password" class="tpl-form-input"  placeholder="请输入新密码" style="width: 500px;margin: auto;" name="password" value="">
+                        <input type="hidden" name="oldpwd" value="<?=md5($row['password'].'abcd123')?>">
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="password" class="tpl-form-input"  placeholder="再次输入密码" style="width: 500px;margin: auto;" name="repassword" value="">
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input"  placeholder="姓名" style="width: 500px;margin: auto;" name="realname" value="<?=$row['realname']?>">
+                    </div>
+
+                    <div class="am-form-group">
+                        <select name="sex"  class="tpl-form-input" style="width: 500px;margin: auto;">
+                            <option value="1" <?=$row['sex'] == 1 ? "selected" : ''?> >男</option>
+                            <option value="2" <?=$row['sex'] == 2 ? "selected" : ''?>>女</option>
+                        </select>
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input"  placeholder="电话" style="width: 500px;margin: auto;" name="telephone" value="<?=$row['telephone']?>">
+                    </div>
+
+                    <div class="am-form-group">
+                        <textarea type="text" class="tpl-form-input"  placeholder="备注" style="width: 500px;margin: auto;" name="remark" cols="30" rows="10"><?=$row['remark']?></textarea>
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input"  placeholder="余额" style="width: 500px;margin: auto;" name="money" value="<?=$row['money']?>">
+                    </div>
+
+                    <div class="am-form-group">
+                        <select name="is_vip"  class="tpl-form-input" style="width: 500px;margin: auto;">
+                            <option value="0" <?=$row['is_vip'] == 0 ? "selected" :''?> >普通会员</option>
+                            <option value="1" <?=$row['is_vip'] == 1 ? "selected" :''?> >VIP会员</option>
+                        </select>
+                    </div>
+
+                    <div class="am-form-group">
+                        <button type="submit" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn" style="width: 100px;margin: auto">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./Public/Admin/js/amazeui.min.js"></script>
+    <script src="./Public/Admin/js/app.js"></script>
+</body>
+</html>

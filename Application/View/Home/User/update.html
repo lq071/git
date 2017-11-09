@@ -1,0 +1,54 @@
+<?php  require_once VIEW_PATH."Home/Base/header.html";?>
+
+<div class="admin-biaogelist">
+
+  <div class="listbiaoti am-cf">
+    <ul class="am-icon-flag on"> 我的个人信息</ul>
+
+    <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">个人信息列表</a></dl>
+
+  </div>
+  <form class="am-form am-g" action="index.php?p=Home&c=User&a=update" method="post" enctype="multipart/form-data">
+
+    <div class="xinxitj"></div>
+    <table class="am-table" style="font-size: 18px">
+      <thead>
+      <tr>
+        <th>头像</th>
+        <th><img src="<?=$row['photo']?>" alt="头像" width="40">
+          <input type="hidden" name="oldphoto" value="<?=$row['photo']?>">
+          <input type="file" name="photo">
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>用户名</td>
+        <td><input type="text" name="username" value="<?=$row['username']?>"></td>
+      </tr>
+      <tr>
+        <td>真实姓名</td>
+        <td><input type="text" name="realname" value="<?=$row['realname']?>">
+          <input type="hidden" name="id" value="<?=$row['user_id']?>"></td>
+      </tr>
+      <tr>
+        <td>性别</td>
+        <td><select name="sex" id="">
+          <option value="1" <?=($row['sex']==1)?'selected':''?>>男</option>
+          <option value="2" <?=($row['sex']==2)?'selected':''?>>女</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>电话</td>
+        <td><input type="text" name="telephone" value="<?=$row['telephone']?>"></td>
+      </tr>
+
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="2" style="text-align: center"><input type="submit" value="修改个人信息"></td>
+      </tr>
+      </tfoot>
+    </table>
+  </form>
+</div>

@@ -1,0 +1,87 @@
+<?php require_once VIEW_PATH."Admin/Base/header.html"?>
+
+
+<div class="admin-biaogelist">
+	
+    <div class="listbiaoti am-cf">
+      <ul class="am-icon-flag on"> 活动名称</ul>
+      
+      <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">活动列表</a></dl>
+      
+      <dl>
+        <a type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" href="index.php?p=Admin&c=Article&a=insert"> 添加活动</a>
+      </dl>
+      
+      
+    </div>
+	
+
+    <form class="am-form am-g">
+          <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+            <thead>
+              <tr class="am-success">
+                <th class="table-id">ID</th>
+                <th class="table-title">活动标题</th>
+                <th class="table-type">活动简介</th>
+                <th class="table-date am-hide-sm-only">开始日期</th>
+                <th class="table-date am-hide-sm-only">结束日期</th>
+                <th class="table-date am-hide-sm-only">发布日期</th>
+                <th width="130px" class="table-date">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+        <?php foreach($rows as $row):?>
+              <tr>
+                <td><?=$row['article_id']?></td>
+                <td><?=$row['title']?></td>
+                <td><a href="#"><?=$row['intro']?></a></td>
+                <td class="am-hide-sm-only">
+                    <?=date('Y-m-d',$row['start'])?>
+                </td>
+                  <td class="am-hide-sm-only">
+                      <?=date('Y-m-d',$row['end'])?>
+                  </td>
+                  <td class="am-hide-sm-only">
+                      <?=date('Y-m-d',$row['time'])?>
+                  </td>
+                <td>
+                    <div class="am-hide-sm-only">
+                    <div class="am-btn-group am-btn-group-xs">
+                      <a class="am-btn am-btn-default am-btn-xs am-text-success am-round" href="index.php?p=Admin&c=Article&a=update1&id=<?=$row['article_id']?>"><span class="am-icon-search" ></span> </a>
+                      <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" href="index.php?p=Admin&c=Article&a=update&id=<?=$row['article_id']?>"><span class="am-icon-pencil-square-o" ></span></a>
+                      <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round" href="index.php?p=Admin&c=Article&a=delete&id=<?=$row['article_id']?>"><span class="am-icon-trash-o" ></span></a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <?php endforeach;?>
+            </tbody>
+          </table>
+                <?=$html?>
+        </form>
+ 
+
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+<!--[if lt IE 9]>
+<script src="./Public/Admin//js/polyfill/rem.min.js"></script>
+<script src="./Public/Admin//js/polyfill/respond.min.js"></script>
+<script src="./Public/Admin//js/amazeui.legacy.js"></script>
+<![endif]--> 
+
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="./Public/Admin//js/amazeui.min.js"></script>
+<!--<![endif]-->
+
+
+
+</body>
+</html>

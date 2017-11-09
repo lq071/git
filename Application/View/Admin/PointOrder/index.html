@@ -1,0 +1,63 @@
+<?php require_once VIEW_PATH."Admin/Base/header.html"?>
+  <div class=" admin-content">
+    <div class="daohang">
+
+    </div>
+
+    <div class="admin-biaogelist">
+      <div class="listbiaoti am-cf">
+        <ul class="am-icon-flag on">
+          订单套餐管理
+        </ul>
+        <dl class="am-icon-home" style="float: right;">
+          当前位置： 首页 > <a href="#">订单管理</a>
+        </dl>
+        
+      </div>
+      <form class="am-form am-g">
+        <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped am-table-hover">
+          <thead>
+            <tr class="am-success">
+              <th>订单号</th>
+              <th>用户名</th>
+              <th>商品</th>
+              <th>地址</th>
+              <th>时间</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php foreach($rows as $row):?>
+            <tr>
+              <td class="am-text-center"><?=$row['id']?></td>
+              <td><?=$row['username']?></td>
+              <td><?=$row['goods']?></td>
+              <td><?=$row['address']?></td>
+              <td><?=$row['time']?></td>
+              <td><?=($row['status'] == 1) ? '完成' : ($row['status'] == 0 ? '未完成': '已发货')?></td>
+              <td>
+                <div style="">
+                  <?php if($row['status']==0):?>
+                  <a  href="index.php?p=Admin &c=PointOrder&a=editStatus&id=<?=$row['id']?>&status=2">发货</a>
+                  <?php endif;?>
+                </div>
+              </td>
+            </tr>
+          <?php endforeach;?>
+            <!---->
+          </tbody>
+        </table>
+        <?=$html?>
+        <hr />
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="./Public/Admin/js/amazeui.min.js"></script> 
+<!--<![endif]-->
+
+</body>
+</html>

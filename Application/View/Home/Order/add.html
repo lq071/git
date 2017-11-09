@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Amaze UI Admin index Examples</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="./Public/Admin/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="./Public/Admin/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="./Public/Admin/css/amazeui.min.css" />
+    <link rel="stylesheet" href="./Public/Admin/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="./Public/Admin/css/app.css">
+    <script src="./Public/Admin/js/jquery.min.js"></script>
+
+</head>
+
+<body data-type="login">
+    <script src="./Public/Admin/js/theme.js"></script>
+    <div class="am-g tpl-g">
+        <!-- 风格切换 -->
+        <span class="tpl-login-content-info" style="font-size: 20px">
+                   <a href="index.php?p=Home&c=Order&a=index" style="text-decoration: none">返回个人中心</a>
+              </span>
+        <div class="tpl-login" style="text-align:center">
+            <div class="tpl-login-content">
+                <div class="tpl-login-title" style="font-size: 30px">添加预约</div>
+                <form class="am-form tpl-form-line-form" method="post" enctype="multipart/form-data" action="index.php?p=Home&c=Order&a=add">
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input"  placeholder="电话" style="width: 500px;margin: auto;" name="phone" value="<?=$_SESSION['userInfo']['telephone']?>">
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input"  placeholder="姓名" style="width: 500px;margin: auto;" name="realname" value="<?=$_SESSION['userInfo']['username']?>">
+                    </div>
+
+                    <div class="am-form-group">
+                        <select name="barber"  style="width: 500px;margin: auto;">
+                            <?php foreach($members as $member): ?>
+                            <option value="<?=$member['member_id']?>" ><?=$member['username']?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="am-form-group">
+                        <select name="plan"  style="width: 500px;margin: auto;">
+                            <?php foreach($plans as $plan): ?>
+                            <option value="<?=$plan['plan_id']?>" ><?=$plan['name']?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input"  placeholder="备注" style="width: 500px;margin: auto;" name="content">
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="you">
+                            <ul>
+                                <li style="">
+                                    <span class="tubiao am-icon-calendar">预约日期</span>
+                                    <input type="text" class="am-form-field am-input-sm am-input-zm  am-icon-calendar" placeholder="选择日期" data-am-datepicker="{theme: 'success',}"  name="date"  style="width: 500px;margin: auto;"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <button type="submit" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn" style="width: 500px;margin: auto">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./Public/Admin/js/amazeui.min.js"></script>
+    <script src="./Public/Admin/js/app.js"></script>
+</body>
+</html>

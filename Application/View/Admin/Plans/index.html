@@ -1,0 +1,69 @@
+<?php require_once VIEW_PATH."Admin/Base/header.html"?>
+  <div class=" admin-content">
+    <div class="daohang">
+
+    </div>
+
+    <div class="admin-biaogelist">
+      <div class="listbiaoti am-cf">
+        <ul class="am-icon-flag on">
+          美发套餐管理
+        </ul>
+        <dl class="am-icon-home" style="float: right;">
+          当前位置： 首页 > <a href="#">套餐列表</a>
+        </dl>
+        <dl>
+          <a href="index.php?p=Admin&c=Plans&a=add" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" >添加套餐</a>
+        </dl>
+        
+      </div>
+      <form class="am-form am-g">
+        <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped am-table-hover">
+          <thead>
+            <tr class="am-success">
+              <th>ID</th>
+              <th>套餐名称</th>
+              <th>套餐描述</th>
+              <th>套餐金额</th>
+              <th>销售情况</th>
+              <th>精品</th>
+              <th>新品</th>
+              <th>热销</th>
+              <th width="163px">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php foreach($rows as $row):?>
+            <tr>
+              <td class="am-text-center"><?=$row['plan_id']?></td>
+              <td><a href="#"><?=$row['name']?></a></td>
+              <td><a href="#"><?=$row['des']?></a></td>
+              <td><a href="#"><?=$row['money']?></a></td>
+              <td><a href="#"><?=($row['status'] == 1) ? '上架' : '下架'?></a></td>
+              <td width="5%"><a href="#"><?=($row['condition']&4) ==4 ? '√' : 'X'?></a></td>
+              <td width="5%"><a href="#"><?=($row['condition']&2) ==2 ? '√' : 'X'?></a></td>
+              <td width="5%"><a href="#"><?=($row['condition']&1) ==1 ? '√' : 'X'?></a></td>
+              <td ><div class="am-btn-toolbar">
+                  <div class="am-btn-group am-btn-group-xs">
+
+                    <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: '#my-popups'}" title="修改" href="index.php?p=Admin&c=Plans&a=edit&id=<?=$row['plan_id']?>" ><span class="am-icon-pencil-square-o" ></span></a>
+                   <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round"  title="删除" href="index.php?p=Admin&c=Plans&a=delete&id=<?=$row['plan_id']?>"><span class="am-icon-trash-o" ></span></a>
+                  </div>
+                </div></td>
+            </tr>
+          <?php endforeach;?>
+            <!---->
+          </tbody>
+        </table>
+        <hr />
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="./Public/Admin/js/amazeui.min.js"></script> 
+<!--<![endif]-->
+
+</body>
+</html>

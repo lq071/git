@@ -1,0 +1,73 @@
+<?php  require_once VIEW_PATH."Home/Base/header.html";?>
+  <div class=" admin-content">
+
+    <div class="daohang">
+      <ul>
+      </ul>
+    </div>
+  <form action="index.php?p=Home&c=History&a=index" method="post">
+<div class="admin">
+    <div class="admin-biaoge" style="width: 90%">
+      <div class="xinxitj" style="font-size: 30px;">充值/消费记录</div>
+      <table class="am-table" >
+        <thead>
+          <tr>
+            <th>服务员名字</th>
+            <th>消费类型</th>
+            <th>消费金额</th>
+            <th>内容</th>
+            <th>时间</th>
+            <th>消费总额</th>
+          </tr>
+        </thead>
+        <tbody>
+      <?php foreach($rows as $row):?>
+          <tr>
+            <td><?=$row['username']?></td>
+            <td><?=($row['type']== 1)? '充值' : '消费'?></td>
+            <td><?=$row['amount']?></td>
+            <td><?=$row['content']?></td>
+            <td><?=date('Y-m-d',$row['time'])?> </td>
+            <td><?=$row['remainder']?> </td>
+          </tr>
+      <?php endforeach; ?>
+        </tbody>
+      </table>
+
+      <?=$html?>
+
+    </div>
+  </form>
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="./Public/Admin/js/polyfill/rem.min.js"></script>
+<script src="./Public/Admin/js/polyfill/respond.min.js"></script>
+<script src="./Public/Admin/js/amazeui.legacy.js"></script>
+<![endif]--> 
+
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="./Public/Admin/js/amazeui.min.js"></script>
+<!--<![endif]-->
+
+
+
+</body>
+</html>

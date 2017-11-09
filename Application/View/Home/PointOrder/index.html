@@ -1,0 +1,46 @@
+<?php  require_once VIEW_PATH."Home/Base/header.html";?>
+
+<div class="admin-biaogelist">
+
+  <div class="listbiaoti am-cf">
+    <ul class="am-icon-flag on"> 我的订单</ul>
+
+    <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">订单列表</a></dl>
+
+  </div>
+  <form class="am-form am-g">
+    <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+      <thead>
+      <tr class="am-success">
+        <th>订单号</th>
+        <th>用户名</th>
+        <th>商品</th>
+        <th>地址</th>
+        <th>时间</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <?php foreach($rows as $row):?>
+      <tr class="am-text-center">
+        <td ><?=$row['id']?></td>
+        <td><?=$row['username']?></td>
+        <td><?=$row['goods']?></td>
+        <td><?=$row['address']?></td>
+        <td><?=date('Y-m-d H:i:s',$row['time'])?></td>
+        <td><?=($row['status'] == 1) ? '完成' : ($row['status'] == 0 ? '未完成': '已发货')?></td>
+        <td>
+          <div style="">
+            <?php if($row['status']!=1):?>
+            <a  href="index.php?p=Home&c=PointOrder&a=editStatus&id=<?=$row['id']?>&status=1">确认收货</a>
+            <?php endif;?>
+          </div>
+        </td>
+      </tr>
+      <?php endforeach;?>
+      </tbody>
+    </table>
+    <!--<?=$html?>-->
+  </form>
+</div>

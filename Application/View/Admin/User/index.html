@@ -1,0 +1,97 @@
+<?php require_once VIEW_PATH."Admin/Base/header.html"?>
+
+
+<div class="admin-biaogelist">
+
+    <div class="listbiaoti am-cf">
+
+      <ul class="am-icon-users"> 会员管理</ul>
+      
+      <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="index.php?p=Admin&c=User&a=index">会员列表</a></dl>
+      
+      <dl>
+        <a type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" href="index.php?p=Admin&c=User&a=insert"> 手动添加会员</a>
+      </dl>
+      <ul class=class="am-icon-users" style="list-style: none">
+        <li><a href="index.php?p=Admin&c=Excel&a=export">导出Excel</a></li>
+      </ul>
+
+      <!--这里打开的是新页面-->
+    </div>
+    <form class="am-form am-g" action="index.php?p=Admin&c=User&a=index" method="post">
+          <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+            <thead>
+              <tr class="am-success">
+                <th class="table-id">ID</th>
+                <th class="table-id">头像</th>
+                <th class="table-title">用户名</th>
+                <th class="table-type">会员名字</th>
+                <th class="table-type">会员等级</th>
+                <th class="table-type">会员积分</th>
+                <th class="table-author am-hide-sm-only">性别</th>
+                <th class="table-author am-hide-sm-only">电话</th>
+                <th class="table-date am-hide-sm-only">余额</th>
+                <th class="table-date am-hide-sm-only">备注</th>
+                <th width="130px" class="table-set">操作</th>
+              </tr>
+
+            </thead>
+            <tbody>
+            <?php foreach($rows as $row):?>
+              <tr>
+                <td><?=$row['user_id']?></td>
+                <td><img src="<?=$row['photo']?>" alt="头像" width="40"></td>
+                <td><?=$row['username']?></td>
+                <td><?=$row['realname']?></td>
+                <td><?=($row['is_vip'] == 1) ? "{$row['level']}" : "普通会员"?></td>
+                <td><?=$row['mark']?></td>
+                <td style="text-align: center"><?=($row['sex']==1)?'男':'女'?></td>
+                <td><?=$row['telephone']?></td>
+                <td><?=$row['money']?></td>
+                <td><?=$row['remark']?></td>
+                <td>
+                	<div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+
+                      <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: ''}" title="修改会员信息" href="index.php?p=Admin&c=User&a=update&user_id=<?=$row['user_id']?>"><span class="am-icon-pencil-square-o"></span></a>
+                      <a class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除会员信息" href="index.php?p=Admin&c=User&a=delete&user_id=<?=$row['user_id']?>"><span class="am-icon-trash-o"></span></a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <?php endforeach;?>
+            </tbody>
+          </table>
+      <ul>
+        <li class="soso">
+          <p>
+            <select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}" name="sex">
+              <option value="">性别</option>
+              <option value="1" <?=(isset($_REQUEST['sex']) && $_REQUEST['sex'] ==1) ? 'selected' : ''?> >男</option>
+              <option value="2" <?=(isset($_REQUEST['sex']) && $_REQUEST['sex'] ==2) ? 'selected' : ''?>>女</option>
+            </select>
+          </p>
+          <p>
+            <select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}" name="is_vip">
+              <option value="">会员等级</option>
+              <option value="1" <?=(isset($_REQUEST['is_vip']) && $_REQUEST['is_vip']==1) ? 'selected' : ''?>>普通会员</option>
+              <option value="2" <?=(isset($_REQUEST['is_vip']) && $_REQUEST['is_vip']==2) ? 'selected' : ''?>>VIP会员</option>
+            </select>
+          </p>
+          <p class="ycfg"><input type="text" name="keyword" class="am-form-field am-input-sm" placeholder="用户名、姓名、性别、手机号等"  value="<?=$_REQUEST['keyword'] ?? ''?>"/></p>
+          <p><button class="am-btn am-btn-xs am-btn-default am-xiao"><i class="am-icon-search"></i></button>
+          </p>
+        </li>
+
+      </ul>
+          <?=$html?>
+          <hr />
+        </form>
+</div>
+</div>
+</div>
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="./Public/Admin/js/amazeui.min.js"></script>
+<!--<![endif]-->
+</body>
+</html>

@@ -1,0 +1,68 @@
+<?php require_once VIEW_PATH."Admin/Base/header.html"?>
+  <div class=" admin-content">
+    <div class="daohang">
+
+    </div>
+    <div class="admin-biaogelist">
+      <div class="listbiaoti am-cf">
+        <ul class="am-icon-flag on">
+          预约美发
+        </ul>
+        <dl class="am-icon-home" style="float: right;">
+          当前位置： 首页 > <a href="#">商品列表</a>
+        </dl>
+      </div>
+      <form class="am-form am-g">
+        <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped am-table-hover">
+          <thead>
+            <tr class="am-success">
+              <th>ID</th>
+              <th>电话</th>
+              <th>姓名</th>
+              <th>预约美发师</th>
+              <th>备注</th>
+              <th>预约日期</th>
+              <th>预约状态</th>
+              <th>回复信息</th>
+              <th width="163px">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php foreach($rows as $row):?>
+            <tr>
+              <td class="am-text-center"><?=$row['order_id']?></td>
+              <td class="am-text-center"><?=$row['phone']?></td>
+              <td><?=$row['realname']?></td>
+              <td><?=$row['barber']?></td>
+              <td><?=$row['content']?></td>
+              <td><?=date('Y-m-d',$row['date'])?></td>
+              <td><?=(($row['status'] == 0) ? '未处理' : ($row['status']==1?'成功':($row['status']==2 ?'失败' :'用户取消预约')))?></td>
+              <td><?=$row['reply']?></td>
+              <td><div class="am-btn-toolbar">
+                  <div class="am-btn-group am-btn-group-xs">
+                    <a class="am-btn am-btn-default am-btn-xs am-text-success am-round am-icon-file" data-am-modal="{target: '#my-popups'}" title="回复"  href="index.php?p=Admin&c=Order&a=edit&id=<?=$row['order_id']?>"></a>
+                    <?php if($row['status']==0 ):?>
+                    <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: '#my-popups'}" title="通过" href="index.php?p=Admin&c=Order&a=editStatus&id=<?=$row['order_id']?>&status=1" ><span class="am-icon-pencil-square-o" ></span></a>
+                    <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: '#my-popups'}" title="拒绝" href="index.php?p=Admin&c=Order&a=editStatus&id=<?=$row['order_id']?>&status=2" ><span class="am-icon-trash-o" ></span></a>
+                    <?php endif;?>
+                  </div>
+                </div></td>
+            </tr>
+          <?php endforeach;?>
+            <!---->
+          </tbody>
+        </table>
+
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="./Public/Admin/js/amazeui.min.js"></script> 
+<!--<![endif]-->
+
+</body>
+</html>

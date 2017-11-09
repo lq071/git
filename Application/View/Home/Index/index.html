@@ -1,0 +1,397 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, maximum-scale=1">
+<title>榕城美容美发</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<link href="./Public/Home/Index/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./Public/Home/Index/js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<link href="./Public/Home/Index/css/style.css" rel="stylesheet" type="text/css"> 
+<link href="./Public/Home/Index/css/font-awesome.css" rel="stylesheet" type="text/css"> 
+<link href="./Public/Home/Index/css/animate.css" rel="stylesheet" type="text/css">
+ 
+<!--[if lt IE 9]>
+    <script src="./Public/Home/Index/js/respond-1.1.0.min.js"></script>
+    <script src="./Public/Home/Index/js/html5shiv.js"></script>
+    <script src="./Public/Home/Index/js/html5element.js"></script>
+<![endif]-->
+    <style>
+        .top>table{
+        border-collapse:collapse;
+        }
+        .top table,th,td{border:1px solid gray;}
+    </style>
+</head>
+<body>
+ <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="active item">
+		<div class="caption zoomIn wow animated">
+              <h2>发型<br/><strong>在为时已晚之前爱护它</strong></h2>
+              </div>
+
+		<img class="" src="./Public/Home/Index/img/slide3.jpg" alt=""></div>
+        <div class="item">
+		<div class="caption zoomIn wow animated"> 		 			 
+              <h2>自然水疗<br/><strong>最好的梦总是发生</strong></h2>
+              </div>
+			  <img class="" src="./Public/Home/Index/img/slide2.jpg" alt=""></div>
+        <div class="item">
+		<div class="caption zoomIn wow animated">
+              <h2>美容 <br/><strong>美容可以看到所有的东西</strong></h2>
+             </div><img class="" src="./Public/Home/Index/img/slide1.jpg" alt=""></div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
+</div>
+
+<!--Header_section-->
+<header id="header_wrapper">
+  <div class="container">
+    <div class="header_box">
+      <!--<div class="logo"><a href="#">Resume</a></div>-->
+	  <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+	    <div id="main-nav" class="collapse navbar-collapse navStyle">
+			<ul class="nav navbar-nav" id="mainNav">
+			  <li class="active"><a href="#carousel" class="scroll-link">首页</a></li>
+			  <li><a href="#aboutUs" class="scroll-link">关于我们</a></li>
+			  <li><a href="#Portfolio" class="scroll-link">最新活动</a></li>
+			  <li><a href="#Top" class="scroll-link">排行榜</a></li>
+                <li><a href="#shop" class="scroll-link">积分商城</a></li>
+			  <li>
+                  <a href="" class="scroll-link">
+                      <?php if(!isset($_SESSION['userInfo'])):
+                  echo "<a href='index.php?p=Home&c=Login&a=index'>会员登录</a>";
+                            else:
+                  echo "<a href='index.php?p=Home&c=Order&a=index'>{$_SESSION['userInfo']['username']}个人中心</a>";
+                  endif;
+                  ?>
+                  </a>
+              </li>
+                <li><a href="" class="scroll-link">
+                    <?php if(isset($_SESSION['userInfo'])):
+                  echo "<a href='index.php?p=Home&c=Login&a=loginOut'>退出</a>";
+                    else:
+                    echo "";
+                    endif;
+                    ?>
+                    </a>
+                </li>
+			</ul>
+      </div>
+	 </nav>
+    </div>
+  </div>
+</header>
+<!--Header_section--> 
+
+<section id="aboutUs"><!--Aboutus-->
+<div class="inner_wrapper about-us aboutUs-container fadeInLeft animated wow">
+  <div class="container">
+    <h2>关于我们</h2>
+	<h6>一个热爱自然和创造的人</h6>
+    <div class="inner_section">
+ <div class="row">
+      <div class="col-md-6"> <img class="img-responsive" src="./Public/Home/Index/img/about1.png" align=""> </div>
+      <div class="col-md-6">
+        <h3>趋势样式</h3>
+        <p>Lorem ipsum dolor sit amet, quo meis voluptaria, erant bonorum albucius et per, ei placerat eu, te eos porro veniam. An everti maiorum detracto mea. Eu eos dicam voluptaria, erant bonorum albucius et per, ei sapientem accommodare est. Saepe dolorum constituam ei vel. Te sit malorum ceteros repudiandae, ne tritani adipisci vis.</p> 
+         
+        <p>Lorem ipsum dolor sit amet, voluptaria, erant bonorum albucius et per, ei meis audire placerat eu, te eos porro veniam. An everti maiorum detracto mea. Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum gravida tortor orci ipsum gravida tortor. 
+									</p>
+
+									<ul class="about-us-list">
+										<li class="points">Consectetur Morbi sagittis, sem quisci ipsum gravida tortor</li> 
+                                        <li class="points">Sagittis, sem quis lacinia faucibus, orci ipsum gravida </li>
+										<li class="points">Ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci</li>
+									</ul><!-- /.about-us-list -->
+								 
+      </div>
+    </div>
+	     </div>
+  </div> 
+  </div>
+</section>
+<!--Aboutus--> 
+
+<!-- Portfolio -->
+<section id="Portfolio" class="content"> 
+  
+  <!-- Container -->
+  <div class="container portfolio_title"> 
+    
+    <!-- Title -->
+    <div class="section-title">
+      <h2>最新活动</h2>
+	<h6>Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum</h6>
+	  
+    </div>
+    <!--/Title --> 
+    
+  </div>
+  <!-- Container -->
+  
+  <div class="portfolio-top"></div>
+  
+  <!-- Portfolio Filters -->
+  <div class="portfolio"> 
+
+    <!--/Portfolio Filters -->
+      <script type="text/javascript">
+          function altRows(id){
+              if(document.getElementsByTagName){
+
+                  var table = document.getElementById(id);
+                  var rows = table.getElementsByTagName("tr");
+
+                  for(i = 0; i < rows.length; i++){
+                      if(i % 2 == 0){
+                          rows[i].className = "evenrowcolor";
+                      }else{
+                          rows[i].className = "oddrowcolor";
+                      }
+                  }
+              }
+          }
+
+          window.onload=function(){
+              altRows('alternatecolor');
+              altRows('alternatecolor1');
+              altRows('alternatecolor2');
+              altRows('alternatecolor3');
+          }
+      </script>
+      <!-- CSS goes in the document HEAD or added to your external stylesheet -->
+      <style type="text/css">
+          table{
+              width: 88%;
+              margin: 0 auto;
+              height: 300px;
+              text-align: center;
+          }
+          table.altrowstable {
+              font-family: verdana,arial,sans-serif;
+              font-size:11px;
+              color:#333333;
+              border-width: 1px;
+              border-color: #a9c6c9;
+              border-collapse: collapse;
+          }
+          table.altrowstable th {
+              width: 80px;
+              border-width: 1px;
+              padding: 8px;
+              border-style: solid;
+              border-color: #a9c6c9;
+          }
+          table.altrowstable td {
+              border-width: 1px;
+              padding: 8px;
+              border-style: solid;
+              border-color: #a9c6c9;
+          }
+          .oddrowcolor{
+              background-color:#d4e3e5;
+          }
+          .evenrowcolor{
+              background-color:#c3dde0;
+          }
+      </style>
+    <!-- Portfolio Wrapper -->
+      <table class="altrowstable" id="alternatecolor3">
+          <tr>
+              <th>标题:</th>
+              <th>活动内容:</th>
+              <th>作者:</th>
+              <th>活动时间:</th>
+          </tr>
+          <?php foreach($articles as $article):?>
+          <tr>
+              <td><?=$article['title']?></td>
+              <td><?=$article['content']?></td>
+              <td><?=$article['name']?></td>
+              <td><?=date('Y-m-d',$article['time'])?>---<?=date('Y-m-d',$article['end'])?></td>
+          </tr>
+          <?php endforeach;?>
+      </table>
+
+  </div>
+  <!--/Portfolio Filters -->
+  
+  <div class="portfolio_btm"></div>
+  
+  
+  <div id="project_container">
+    <div class="clear"></div>
+    <div id="project_data"></div>
+  </div>
+</section>
+ <!-- Portfolio -->
+
+ <!-- TOP -->
+ <section id="Top" class="top">
+
+     <!-- Container -->
+     <div class="container portfolio_title">
+
+         <!-- Title -->
+         <div class="section-title">
+             <h2>排行榜</h2>
+         </div>
+         <!--/Title -->
+
+     </div>
+     <!-- Container -->
+
+     <div class="portfolio-top"></div>
+
+     <!-- Portfolio Filters -->
+
+
+     <!-- Javascript goes in the document HEAD -->
+
+     <div id="t" class="carousel slide carousel-fade" data-ride="t">
+
+         <!-- Carousel items -->
+         <div class="carousel-inner">
+             <p style="text-align: center;font-size: 25px"></p>
+             <div class="active item">
+                 <div class="caption zoomIn wow animated">
+                 </div>
+                 <table class="altrowstable" id="alternatecolor">
+                     <tr>
+                         <td colspan="2" style="text-align: center;font-size: 30px"><strong>充值排行榜</strong></td>
+                     </tr>
+                 <tr>
+                     <td>姓名</td>
+                     <td>充值金额</td>
+                 </tr>
+                 <?php foreach($recharges as  $recharge):?>
+                 <tr>
+                     <td><?= $recharge['username']?></td>
+                     <td><?= $recharge['amount']?> </td>
+                 </tr>
+                 <?php endforeach;?>
+             </table>
+             </div>
+             <div class="item">
+                 <div class="caption zoomIn wow animated">
+                 </div>
+                 <table class="altrowstable" id="alternatecolor1">
+                     <tr>
+                         <td colspan="2" style="text-align: center;font-size: 30px"><strong>消费排行榜</strong></td>
+                     </tr>
+                     <tr>
+                         <td>姓名</td>
+                         <td>消费金额</td>
+                     </tr>
+                     <?php foreach($consumes as $consume):?>
+                     <tr >
+                         <td><?=$consume['username']?></td>
+                         <td><?=$consume['amount']?> </td>
+                     </tr>
+                     <?php endforeach;?>
+                 </table>
+             </div>
+             <div class="item">
+                 <div class="caption zoomIn wow animated">
+
+                 </div>
+                 <!--充值排行榜start-->
+                 <table class="altrowstable" id="alternatecolor2">
+                     <tr>
+                         <td colspan="2" style="text-align: center;font-size: 30px"><strong>服务之星</strong></td>
+                     </tr>
+                     <tr>
+                         <td>美发师</td>
+                         <td>服务次数</td>
+                     </tr>
+                     <?php foreach($members as $member):?>
+                     <tr>
+                         <td><?=$member['username']?></td>
+
+                         <td><?=$member['num']?> </td>
+                     </tr>
+                     <?php endforeach;?>
+                 </table>
+                 <!--充值排行榜end-->
+             </div>
+         </div>
+         <!-- Carousel nav -->
+         <a class="carousel-control left" href="#t" data-slide="prev" style="width: 100px">&lsaquo;</a>
+         <a class="carousel-control right" href="#t" data-slide="next" style="width: 100px">&rsaquo;</a>
+     </div>
+
+
+
+ </section>
+ <!-- TOP -->
+
+
+ <!--shop-->
+ <section id="shop"><!--Aboutus-->
+     <div class="inner_wrapper about-us aboutUs-container fadeInLeft animated wow">
+         <div class="container">
+             <h2>积分商城</h2>
+             <h6></h6>
+             <div class="inner_section">
+                 <div class="row">
+
+                     <div style="width:1200px;margin: 0 auto">
+                         <?php foreach($rows as $row):?>
+                         <div style="float:left;width:24%; margin-left:12px;">
+                             <div class="isotope fadeInLeft animated wow grid" style="position: relative;  overflow: hidden; height: 200px;" >
+                                 <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 300px; opacity: 1;" class="portfolio-item one-four   animals isotope-item effect-oscar">
+
+                                     <div class="portfolio_img">
+                                         <img src="<?=$row['image']?>"  alt="Portfolio 1" width="20px"> </div>
+                                     <figcaption>
+
+                                         <div>
+                                             <a href="<?=$row['image']?>" class="fancybox" >
+                                                 <h2><span style="font-size: 20px"><?=$row['goods']?></span></h2>
+                                                 <p>Oscar is a decent man. He used to clean porches with pleasure.</p >
+                                             </a>
+                                         </div>
+                                     </figcaption>
+                                 </figure>
+                             </div>
+                             <div><strong><?=$row['mark']?>积分&emsp;&emsp;<big>
+                                 <a href="index.php?p=Home&c=PointOrder&a=addForm&id=<?=$row['point_id']?>">立即兑换</a>
+                             </big></strong></div>
+                         </div>
+                         <?php endforeach;?>
+                     </div>
+
+
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </section>
+ <!--Aboutus-->
+ <!--shop-->
+<script type="text/javascript" src="./Public/Home/Index/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="./Public/Home/Index/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./Public/Home/Index/js/jquery-scrolltofixed.js"></script>
+<script type="text/javascript" src="./Public/Home/Index/js/jquery.nav.js"></script> 
+<script type="text/javascript" src="./Public/Home/Index/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="./Public/Home/Index/js/jquery.isotope.js"></script>
+<script src="./Public/Home/Index/js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script> 
+<script type="text/javascript" src="./Public/Home/Index/js/wow.js"></script> 
+<script type="text/javascript" src="./Public/Home/Index/js/custom.js"></script>
+
+</body>
+</html>

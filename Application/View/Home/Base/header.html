@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>榕城美容美发</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="./Public/Admin/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="./Public/Admin/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="./Public/Admin/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="./Public/Admin/css/admin.css">
+    <script src="./Public/Admin/js/jquery.min.js"></script>
+    <script src="./Public/Admin/js/app.js"></script>
+</head>
+<body>
+<header class="am-topbar admin-header">
+    <div class="am-topbar-brand" style="color:#aeb2b7; font-size: 30px;">
+        尊贵的会员<?=$_SESSION['userInfo']['username']?>
+    </div>
+    <div class="am-topbar-brand" style="font-size: 20px;">
+        <?php
+    $h=date('G');
+    if ($h<11) echo '早上好';
+      else if ($h<13) echo '中午好';
+      else if ($h<17) echo '下午好';
+      else echo '晚上好';
+      echo "&emsp;今天是".date('Y-m-d H:i:s');
+?>
+    </div>
+    <div class="am-topbar-brand" style="font-size: 20px;background-color: #2A3542">
+        <a href="index.php?p=Home&c=Index&a=index">我们的官网-->点击这里</a>
+    </div>
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+        <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
+            <li class="kuanjie">
+                <a href="index.php?p=Home&c=User&a=index">个人中心</a>
+                <a href="index.php?p=Home&c=Login&a=loginOut">安全退出</a>
+            </li>
+            <li class="am-hide-sm-only" style="float: right;">
+                <a href="javascript:;" id="admin-fullscreen">
+                    <span class="am-icon-arrows-alt"></span>
+                    <span class="admin-fullText">开启全屏</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="am-cf admin-main">
+    <div class="nav-navicon admin-main admin-sidebar">
+        <div class="sideMenu">
+
+            <h3 class="am-icon-users"><em></em> <a href="index.php?p=Home&c=Order&a=index">预约美发</a></h3>
+            <ul>
+                <li><a href="index.php?p=Home&c=Order&a=index">预约列表</a> </li>
+                <li><a href="index.php?p=Home&c=Order&a=add">我要预约</a> </li>
+            </ul>
+
+            <h3 class="am-icon-users"><em></em> <a href="index.php?p=Home&c=History&a=index">消费记录</a></h3>
+            <ul>
+                <li><a href="index.php?p=Home&c=History&a=index">我的消费记录</a> </li>
+            </ul>
+
+            <h3 class="am-icon-users"><em></em> <a href="index.php?p=Home&c=Codes&a=index">代金券管理</a></h3>
+            <ul>
+                <li><a href="index.php?p=Home&c=Codes&a=index">我的代金券</a> </li>
+            </ul>
+
+            <h3 class="am-icon-users"><em></em> <a>积分商城</a></h3>
+            <ul>
+                <li><a href="index.php?p=Home&c=PointOrder&a=index">查看我的订单</a> </li>
+            </ul>
+
+            <h3 class="am-icon-users"><em></em> <a href="#">查看最近活动</a></h3>
+            <ul>
+                <li><a href="index.php?p=Home&c=Article&a=index">活动列表</a> </li>
+            </ul>
+        </div>
+        <!-- sideMenu End -->
+
+        <script type="text/javascript">
+            jQuery(".sideMenu").slide({
+                titCell:"h3", //鼠标触发对象
+                targetCell:"ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
+                effect:"slideDown", //targetCell下拉效果
+                delayTime:300 , //效果时间
+                triggerTime:150, //鼠标延迟触发时间（默认150）
+                defaultPlay:true,//默认是否执行效果（默认true）
+                returnDefault:true //鼠标从.sideMen移走后返回默认状态（默认false）
+            });
+        </script>
+    </div>

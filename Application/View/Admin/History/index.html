@@ -1,0 +1,178 @@
+<?php require_once VIEW_PATH."Admin/Base/header.html"?>
+<div class=" admin-content">
+  <div class="daohang">
+
+</div>
+
+
+<div class="admin-biaogelist">
+
+    <div class="listbiaoti am-cf">
+
+      <ul class="am-icon-users"> 消费记录管理</ul>
+
+      <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="index.php?p=Admin&c=User&a=index">消费记录列表</a></dl>
+
+      <!--这里打开的是新页面-->
+    </div>
+    <form class="am-form am-g" action="index.php?p=Admin&c=History&a=index" method="post">
+          <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+            <thead>
+              <tr class="am-success">
+                <th class="table-id">ID</th>
+                <th class="table-title">会员名</th>
+                <th class="table-title">服务员</th>
+                <th class="table-type">类型</th>
+                <th class="table-type">金额</th>
+                <th class="table-type">消费内容</th>
+                <th class="table-author am-hide-sm-only">消费时间</th>
+                <th class="table-date am-hide-sm-only">余额</th>
+                <th width="40px" class="table-set">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+            <?php foreach($rows as $row):?>
+              <tr>
+                <td><?=$row['history_id']?></td>
+                <td>
+                  <?php foreach($Resusers as $Resuser):
+                       if($Resuser['user_id'] == $row['user_id']):
+                            echo $Resuser['username'];
+                       endif;
+                     endforeach;
+                  ?>
+                </td>
+                <td>
+                  <?php foreach($ResMembers as $ResMember):
+                       if($ResMember['member_id'] == $row['member_id']):
+                            echo $ResMember['username'];
+                       endif;
+                     endforeach;
+                  ?>
+                </td>
+                <td><?=($row['type'] == 1)? '充值':'消费'?></td>
+                <td><?=$row['amount']?></td>
+                <td><?=$row['content']?></td>
+                <td><?=date('Y-m-d H:i:s',$row['time'])?></td>
+                <td><?=$row['remainder']?></td>
+                <td>
+                	<div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                      <button class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看消费详情"></span> </button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <?php endforeach;?>
+            </tbody>
+          </table>
+      <ul>
+        <li class="soso">
+          <p>
+            <select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}" name="type">
+              <option value="">类型</option>
+              <option value="2" <?=(isset($_REQUEST['type']) && $_REQUEST['type'] ==2) ? 'selected' : ''?> >充值</option>
+              <option value="1" <?=(isset($_REQUEST['type']) && $_REQUEST['type'] ==1) ? 'selected' : ''?>>消费</option>
+            </select>
+          </p>
+          <p class="ycfg"><input type="text" name="keyword" class="am-form-field am-input-sm" placeholder="会员名、服务员姓名、消费内容等"  value="<?=$_REQUEST['keyword'] ?? ''?>"/></p>
+          <p><button class="am-btn am-btn-xs am-btn-default am-xiao"><i class="am-icon-search"></i></button>
+          </p>
+        </li>
+      </ul>
+          <?=$html?>
+          <hr />
+        </form>
+  <!--排行榜-->
+  <div class="am-tabs am-margin" data-am-tabs>
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+      <li class="am-active"><a href="#tab1">充值排行榜</a></li>
+      <li><a href="#tab2">消费排行榜</a></li>
+      <li><a href="#tab3">服务之星</a></li>
+    </ul>
+
+
+
+
+
+    <div class="am-tabs-bd">
+
+      <div class="am-tab-panel am-fade" id="tab1">
+        <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+          <thead>
+          <tr class="am-success">
+            <th class="table-id">ID</th>
+            <th class="table-title">会员名</th>
+            <th class="table-title">充值金额</th>
+          </tr>
+          </thead>
+          <tbody>
+          <?php foreach($rechargeTop as $recharge): ?>
+            <tr>
+              <td><?=$recharge['user_id']?></td>
+              <td><?=$recharge['username']?></td>
+              <td><?=$recharge['sumMoney']?></td>
+            </tr>
+          <?php endforeach;?>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="am-tab-panel am-fade" id="tab2">
+        <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+          <thead>
+          <tr class="am-success">
+            <th class="table-id">ID</th>
+            <th class="table-title">会员名</th>
+            <th class="table-title">消费金额</th>
+          </tr>
+          </thead>
+          <tbody>
+            <?php foreach($spendTop as $spend): ?>
+            <tr>
+              <td><?=$spend['user_id']?></td>
+              <td><?=$spend['username']?></td>
+              <td><?=$spend['sumMoney']?></td>
+            </tr>
+            <?php endforeach;?>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="am-tab-panel am-fade" id="tab3">
+        <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+          <thead>
+          <tr class="am-success">
+            <th class="table-id">ID</th>
+            <th class="table-title">服务员</th>
+            <th class="table-title">服务顾客次数</th>
+          </tr>
+          </thead>
+          <tbody>
+
+            <?php foreach($serviceTop as $service): ?>
+              <tr>
+                <td><?=$service['member_id']?></td>
+                <td><?=$service['username']?></td>
+                <td><?=$service['sumService']?></td>
+              </tr>
+            <?php endforeach;?>
+          </tbody>
+        </table>
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <!--排行榜-->
+</div>
+
+</div>
+</div>
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="./Public/Admin/js/amazeui.min.js"></script>
+<!--<![endif]-->
+</body>
+</html>

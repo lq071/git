@@ -1,0 +1,52 @@
+<?php require_once VIEW_PATH."Admin/Base/header.html"?>
+
+
+<div class="admin-biaogelist">
+
+    <div class="listbiaoti am-cf">
+
+      <ul class="am-icon-users"> 会员VIP管理</ul>
+      
+      <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="index.php?p=Admin&c=Vip&a=index">管理列表</a></dl>
+
+
+      <!--这里打开的是新页面-->
+    </div>
+    <form class="am-form am-g" action="index.php?p=Admin&c=User&a=index" method="post">
+          <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+            <thead>
+              <tr class="am-success">
+                <th class="table-title">VIP等级</th>
+                <th class="table-type">折扣</th>
+                <th class="table-type">VIP等级条件</th>
+                <th width="130px" class="table-set">操作</th>
+              </tr>
+
+            </thead>
+            <tbody>
+            <?php foreach($rows as $row):?>
+              <tr>
+                <td><?=$row['level']?></td>
+                <td><?=$row['discount']?>折</td>
+                <td><?=$row['proviso']?></td>
+                <td>
+                	<div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                      <a class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: ''}" title="修改信息" href="index.php?p=Admin&c=Vip&a=update&vip_id=<?=$row['vip_id']?>"><span class="am-icon-pencil-square-o"></span></a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <?php endforeach;?>
+            </tbody>
+          </table>
+          <hr />
+        </form>
+</div>
+</div>
+</div>
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="./Public/Admin/js/amazeui.min.js"></script>
+<!--<![endif]-->
+</body>
+</html>

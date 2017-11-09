@@ -1,0 +1,58 @@
+<?php require_once VIEW_PATH."Home/Base/header.html"?>
+
+
+<div class="admin-biaogelist">
+	
+    <div class="listbiaoti am-cf">
+      <ul class="am-icon-flag on"> 活动名称</ul>
+      
+      <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">活动列表</a></dl>
+      
+
+      
+      
+    </div>
+
+
+    <form class="am-form am-g">
+          <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+              <tr>
+                  <th style="width: 80px;">标题:</th>
+                  <th>活动内容:</th>
+                  <th style="width: 60px;">作者:</th>
+                  <th style="width: 150px;">活动时间:</th>
+              </tr>
+              <?php foreach($articles as $article):?>
+              <tr>
+                  <td><?=$article['title']?></td>
+                  <td><?=$article['content']?></td>
+                  <td><?=$article['name']?></td>
+                  <td>开始时间:<?=date('Y-m-d',$article['time'])?>结束时间<?=date('Y-m-d',$article['end'])?></td>
+              </tr>
+              <?php endforeach;?>
+          </table>
+        </form>
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+<!--[if lt IE 9]>
+<script src="./Public/Admin//js/polyfill/rem.min.js"></script>
+<script src="./Public/Admin//js/polyfill/respond.min.js"></script>
+<script src="./Public/Admin//js/amazeui.legacy.js"></script>
+<![endif]--> 
+
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="./Public/Admin//js/amazeui.min.js"></script>
+<!--<![endif]-->
+
+
+
+</body>
+</html>
